@@ -1,0 +1,299 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 40px 0;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Container styles with subtle animation */
+  .feedback-container {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .feedback-container:hover {
+    transform: translateY(-5px);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Heading styles */
+  h1 {
+    text-align: center;
+    margin-bottom: 1.8rem;
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 2.2rem;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  
+  h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    border-radius: 2px;
+  }
+  
+  /* Form styles */
+  .feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    position: relative;
+  }
+  
+  label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.95rem;
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+  }
+  
+  input, textarea {
+    padding: 0.9rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    color: #444;
+    background-color: #f9f9f9;
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  .error-input {
+    border-color: #e74c3c;
+    background-color: #fff8f8;
+  }
+  
+  .error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    animation: shake 0.4s linear;
+  }
+  
+  .error-message::before {
+    content: "⚠️";
+    margin-right: 6px;
+    font-size: 0.9rem;
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+  
+  .submit-button {
+    padding: 0.9rem 1.5rem;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 0.8rem;
+    align-self: center;
+    width: 100%;
+    max-width: 200px;
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .submit-button:hover {
+    background: linear-gradient(90deg, #2980b9, #2573a7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(52, 152, 219, 0.25);
+  }
+  
+  .submit-button:active {
+    transform: translateY(1px);
+  }
+  
+  .submit-button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.4s;
+  }
+  
+  .submit-button:hover::after {
+    left: 100%;
+  }
+  
+  /* Submitted feedback styles */
+  .submitted-feedback {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 2px dashed #eaeaea;
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .submitted-feedback h2 {
+    color: #2c3e50;
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .submitted-feedback h2::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    border-radius: 2px;
+  }
+  
+  .feedback-card {
+    background-color: #f8f9fa;
+    padding: 1.8rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #2ecc71;
+  }
+  
+  .feedback-card p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .feedback-card p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .feedback-card strong {
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  
+  /* Custom styling for the message content */
+  .feedback-card p:last-child {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .feedback-card p:last-child strong {
+    margin-bottom: 0.6rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 700px) {
+    body {
+      padding: 20px;
+    }
+    
+    .feedback-container {
+      padding: 1.8rem;
+      border-radius: 12px;
+      margin: 0 15px;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+    }
+    
+    .submit-button {
+      width: 100%;
+      max-width: none;
+    }
+  }
+  
+  /* Focus styles for accessibility */
+  input:focus-visible, 
+  textarea:focus-visible, 
+  button:focus-visible {
+    outline: 3px solid #3498db;
+    outline-offset: 2px;
+  }
+  
+  /* Custom placeholders */
+  ::placeholder {
+    color: #aaa;
+    opacity: 1;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
